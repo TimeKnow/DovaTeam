@@ -1,0 +1,55 @@
+
+{% extends 'nav_base.html' %}
+{% block title %}Log In{% endblock %}
+{% block body %}
+
+<div class="container-fluid">
+    <div class="row">
+            <div class="col-md-4 col-lg-offset-4">
+                <div class="panel panel-default">
+                <div class="panel-body">
+                    <form class="form-horizontal" role="form" action="" method="post" >
+                        {% csrf_token %}
+                        {% if hasError %}
+                            <div class="alert alert-danger" role="alert">{{ error_message }}</div>
+                        {% endif %}
+                        {% if hasSuccessAlert %}
+                            <div class="alert alert-success" role="alert">{{ success_message }}</div>
+                        {% endif %}
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <input id="id_username" maxlength="30" name="username" type="text" placeholder="Username" class="form-control"/>
+                            </div>
+                        </div>
+                        {% if createAccount%}
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <input id="id_email" maxlength="30" name="email" type="email" placeholder="Email address" class="form-control"/>
+                            </div>
+                        </div>
+                        {% endif %}
+						<div class="form-group">
+                            <div class="col-sm-12">
+                                <input id="id_password" maxlength="30" name="password" type="password" placeholder="Password" class="form-control"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-4 col-sm-offset-4">
+                                <button type="submit" class="btn btn-success btn-block">{% if not createAccount %}Login{% else %}Register{% endif %}</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                    <div class="panel-footer col-sm-10 col-sm-offset-1">
+                    {% if createAccount %}
+                        You already have an account? <a href="/login/">Click here</a> to login.
+                    {% else %}
+                        Don't have an account? <a href="/register/" method="">Click here</a> to register.
+                    {% endif %}
+                </div>
+            </div>
+            </div>
+    </div>
+</div>
+{% endblock %}
