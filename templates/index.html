@@ -1,5 +1,7 @@
 {% extends 'nav_base.html' %}
 {% block title %}Home{% endblock %}
 {% block body %}
-    Welcome {{ request.user.username }}!
+    <div class="text-info">
+        <h1>Welcome {{ request.user.username }}!</h1>
+    </div>
 {% endblock %}

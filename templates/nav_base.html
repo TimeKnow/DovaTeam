@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
     {% load staticfiles %}
-    <link rel="stylesheet" type="text/css" href="{% static 'mainBodyStyle.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'DovaTeam/mainBodyStyle.css' %}" />
     <meta charset="UTF-8">
     <title>{% block title %}The DovaTeam{% endblock %}</title>
 </head>
+
 
 <body>
 <nav class="navbar navbar-inverse">
@@ -21,7 +23,7 @@
         <div>
             <ul class="nav navbar-nav navbar-right">
                     {% if request.user.is_authenticated %}
-                    <li>Welcome, {{ request.user.username }}</li>
+                    <li class="navbar-text">Welcome, {{ request.user.username }}</li>
                     <li><a href="/logout/">Logout</a></li>
                     {% endif %}
             </ul>
