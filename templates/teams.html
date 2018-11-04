@@ -1,0 +1,12 @@
+{% extends 'nav_base.html' %}
+{% block title %}Home{% endblock %}
+{% block body %}
+    <div class="text-info">
+        <h1>Your teams {{ request.user.username }}!</h1>
+        <ul>
+            {% for team in object_list %}
+                <l1><a href="{% url 'team_id' team.id %}">{{ team.name }}</a> </l1>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
