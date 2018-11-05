@@ -1,12 +1,39 @@
 {% extends 'nav_base.html' %}
 {% block title %}Home{% endblock %}
 {% block body %}
-    <div class="text-info">
-        <h1>Your teams {{ request.user.username }}!</h1>
-        <ul>
-            {% for team in object_list %}
-                <l1><a href="{% url 'team_id' team.id %}">{{ team.name }}</a> </l1>
-            {% endfor %}
-        </ul>
+
+
+<div class="container-fluid">
+
+    <div class="jumbotron">
+        <h1 class="display-4">Your teams, {{ request.user.username }}!</h1>
+        <p class="lead"> These are your teams. Take a look and do something with this knowledge.</p>
+
     </div>
+
+    <div class="row">
+        {% for team in object_list %}
+            <ul>
+                <li>
+                    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                        <div class="thumbnail">
+                            {% load static %}
+                            <img src="{%  static "DovaTeam/resources/497637.jpg" %}" class="img-responsive" alt="Team1">
+                            <div class="centered">
+                                <h3><a class="text-white" href="{% url 'team_id' team.id %}">{{ team.name }}</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        {% endfor %}
+    </div>
+
+
+
+</div>
+
 {% endblock %}
+
+
+

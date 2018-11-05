@@ -2,11 +2,18 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-
     {% load staticfiles %}
     <link rel="stylesheet" type="text/css" href="{% static 'DovaTeam/mainBodyStyle.css' %}" />
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'DovaTeam/teamListStyle.css' %}" />
     <meta charset="UTF-8">
     <title>{% block title %}The DovaTeam{% endblock %}</title>
+    <style>
+        .jumbotron{
+            background: rgba(102, 111, 115, 0.75);
+            color: #e9fbff;
+        }
+    </style>
 </head>
 
 
@@ -16,10 +23,22 @@
 
         <!-- Header -->
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
-            </button>
-            <a class="navbar-brand" href="">DovaTeam</a>
+
+            <a class="navbar-brand" href="#">DovaTeam</a>
         </div>
+
+
+
+        <!-- Menu items -->
+        <div class="collapse navbar-collapse" id="mainNavBar">
+            <ul class="nav navbar-nav">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Teams</a></li>
+            </ul>
+        </div>
+
+
+
         <div>
             <ul class="nav navbar-nav navbar-right">
                     {% if request.user.is_authenticated %}
@@ -30,6 +49,9 @@
         </div>
     </div>
 </nav>
+
+
+
 {% block body %}
 {% endblock %}
 </body>
