@@ -3,35 +3,33 @@
 {% block body %}
 
 
-<div class="container-fluid">
+    <div class="container-fluid">
 
-    <div class="jumbotron">
-        <h1 class="display-4">Your teams, {{ request.user.username }}!</h1>
-        <p class="lead"> These are your teams. Take a look and do something with this knowledge.</p>
+        <div class="jumbotron">
+            <h1 class="display-4">Your teams, {{ request.user.username }}!</h1>
+            <p class="lead"> These are your teams. Take a look and do something with this knowledge.</p>
 
-    </div>
+        </div>
 
-    <div class="row">
-        {% for team in object_list %}
-            <ul>
-                <li>
-                    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                        <div class="thumbnail">
+
+        <div class="row">
+            <div class="col-md-12 thumb">
+                <ul class="list-inline">
+                    {% for team in object_list %}
+                        <li>
+                            <div class="container-fluid">
                             {% load static %}
-                            <img src="{%  static "DovaTeam/resources/497637.jpg" %}" class="img-responsive" alt="Team1">
-                            <div class="centered">
-                                <h3><a class="text-white" href="{% url 'team_id' team.id %}">{{ team.name }}</a></h3>
+                            <img src="{%  static "DovaTeam/resources/497637.jpg" %}" class="img-fluid img-thumbnail" alt="Team1" style="max-width: 200px">
+                                <div class="centered"><h3><a class="nav-link" href="{% url 'team_id' team.id %}">{{ team.name }} </a></h3></div>
                             </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        {% endfor %}
+
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
     </div>
-
-
-
-</div>
 
 {% endblock %}
 
