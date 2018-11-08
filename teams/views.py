@@ -16,7 +16,17 @@ class TeamView(generic.ListView):
 class TeamViewUserTeam(generic.ListView):
     template_name = 'teams_user.html'
     def get_queryset(self):
+        teamId = int(re.search('[0-9]+', self.request.path).group(0))
+        return User.objects.filter(team__id=teamId)
+    def dispatch(self, request, *args, **kwargs):
+        # check if there is some video onsite
         if not self.request.user.is_authenticated:
             return redirect('/login/')
         teamId = int(re.search('[0-9]+', self.request.path).group(0))
-        return User.objects.filter(team__id=teamId)
+        user = self.request.user
+        b = list(Team.objects.filter(id=teamId)[0].users.all())
+        ok = b.__contains__(user)
+        if not ok:
+            return redirect('/teams/')
+        else:
+            return super(TeamViewUserTeam, self).dispatch(request, *args, **kwargs)
