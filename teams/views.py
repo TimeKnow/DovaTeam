@@ -19,14 +19,12 @@ class TeamViewUserTeam(generic.ListView):
         teamId = int(re.search('[0-9]+', self.request.path).group(0))
         return User.objects.filter(team__id=teamId)
     def dispatch(self, request, *args, **kwargs):
-        # check if there is some video onsite
         if not self.request.user.is_authenticated:
             return redirect('/login/')
+        
         teamId = int(re.search('[0-9]+', self.request.path).group(0))
-        user = self.request.user
-        b = list(Team.objects.filter(id=teamId)[0].users.all())
-        ok = b.__contains__(user)
-        if not ok:
+
+        if not list(Team.objects.filter(id=teamId)[0].users.all()).__contains__(self.request.user):
             return redirect('/teams/')
-        else:
-            return super(TeamViewUserTeam, self).dispatch(request, *args, **kwargs)
+
+        return super(TeamViewUserTeam, self).dispatch(request, *args, **kwargs)
