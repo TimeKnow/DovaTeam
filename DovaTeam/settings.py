@@ -25,6 +25,7 @@ SECRET_KEY = '^)1v05=9u*j$6vp=p5!&ne^l83d@oa$_qjvm1vov-0(b36^q6t'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+#from socket import gethostname, gethostbyname
 ALLOWED_HOSTS = []
 
 
