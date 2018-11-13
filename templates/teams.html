@@ -13,7 +13,7 @@
 
 
         <div class="row">
-            <div class="col-md-12 thumb">
+            <div class="col-lg-12 thumb">
                 <ul class="list-inline">
                     {% for team in object_list %}
                         <li>
@@ -22,11 +22,25 @@
                             <img src="{%  static "DovaTeam/resources/497637.jpg" %}" class="img-fluid img-thumbnail" alt="Team1" style="max-width: 200px">
                                 <div class="centered"><h3><a class="nav-link" href="{% url 'team_id' team.id %}">{{ team.name }} </a></h3></div>
                             </div>
-
+                            <button type="button" class="btn btn-danger">
+                                Delete team
+                            </button>
                         </li>
                     {% endfor %}
+                        <li>
+                            <button type="button" class="btn btn-success">
+                                Add Team...
+                            </button>
+                        </li>
                 </ul>
             </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+
+            </div>
+
         </div>
 
     </div>

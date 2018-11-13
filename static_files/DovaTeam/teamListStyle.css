@@ -36,12 +36,6 @@ ul.nav li a, ul.nav li a:visited {
     font-weight: bold;
 }
 
-ul.nav li a:hover, ul.nav li a:active {
-    color: white !important;
-    font-weight: bold;
-}
-
-ul.nav li.active a {
-    color: white !important;
-    font-weight: bold;
+.navbar-nav .open .dropdown-menu {
+    background-color:#ffff;
 }

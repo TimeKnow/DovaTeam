@@ -1,3 +1,7 @@
 body {
     background: white url("resources/background.jpg") no-repeat fixed;
 }
+
+.dropdown-menu a{
+    color: #000000 !important;
+}

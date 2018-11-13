@@ -1,7 +1,11 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     {% load staticfiles %}
     <link rel="stylesheet" type="text/css" href="{% static 'DovaTeam/mainBodyStyle.css' %}" />
     {% load staticfiles %}
@@ -29,6 +33,10 @@
     }
 </script>
 
+
+
+
+
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
 
@@ -41,8 +49,22 @@
             <ul class="nav navbar-nav mr-auto">
                 {% if request.user.is_authenticated %}
                 <li class="nav-item" id="id_nav_home" onmouseenter="setElementActive('id_nav_home')" onmouseleave="setElementInactive('id_nav_home')"> <a class="nav-link" href="/">Home</a></li>
-               <li class="nav-item" id="id_nav_teams" onmouseenter="setElementActive('id_nav_teams')" onmouseleave="setElementInactive('id_nav_teams')"> <a class="nav-link" href="/teams/">Teams</a></li>
+               <li class="nav-item" id="id_nav_teams" onmouseenter="setElementActive('id_nav_teams')" onmouseleave="setElementInactive('id_nav_teams')">
+                   <a class="nav-link" href="/teams/">
+                       Teams
+                   </a>
+               </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Profile <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Friends</a></li>
+                            <li><a class="dropdown-item" href="#">Photos</a></li>
+                            <li><a class="dropdown-item" href="#">Settings</a></li>
+                        </ul>
+                    </li>
                 {% endif %}
+
+
             </ul>
             <ul class="nav navbar-nav navbar-right">
                     {% if request.user.is_authenticated %}

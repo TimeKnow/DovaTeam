@@ -20,13 +20,22 @@
                                  alt="Team1" style="max-width: 200px">
                             <div class="centered"><h3>{{ user.username }}</h3>
                             </div>
-                        </div>
 
+                        </div>
+                        <button type="button" class="btn btn-danger">
+                            Delete user
+                        </button>
                     </li>
                 {% endfor %}
+                    <li>
+                        <button type="button" class="btn btn-success">
+                            Add User...
+                        </button>
+                    </li>
             </ul>
         </div>
-
     </div>
+
+
 
 {% endblock %}
